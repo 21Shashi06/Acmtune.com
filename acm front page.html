@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACM Tune</title>
+
+    <!-- Tailwind CSS (via CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            width: 50%; /* Sidebar will take up half the screen */
+            height: 100vh; /* Full height */
+            top: 0;
+            left: 0;
+            position: fixed; /* Fix it at the top */
+            background-color: #1c1c1c; /* Background color for better contrast */
+            z-index: 1000; /* Ensure it is on top of other content */
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .content-dimmed {
+            filter: brightness(0.5); /* Dim the rest of the content */
+        }
+
+        .sidebar-logo {
+            background-color: #e74c3c; /* Background color matching the navigation button */
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0; /* Add some margin for better spacing */
+        }
+
+        .sidebar-logo img {
+            height: 60px; /* Slightly larger logo */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 fixed w-full top-0 z-50 flex justify-between items-center shadow-lg" id="header">
+        <a href="acm front page.html">
+            <img src="Contact Us.png" alt="ACM Tune Logo" class="h-12">
+        </a>
+        <button class="bg-red-600 text-white text-xl p-2 rounded-md hover:bg-red-500" id="toggle-btn">☰</button>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="relative flex flex-col items-center justify-center h-screen text-center bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800" id="hero-section">
+        <h2 class="text-6xl font-pacifico mb-4 animate-fadeIn">Welcome to ACM Tune</h2>
+        <a href="#categories-section" class="bg-red-600 text-white py-3 px-6 rounded-md text-xl hover:bg-red-500 mt-4">Start Exploring</a>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <a href="acm front page.html">
+                <img src="Contact Us.png" alt="ACM Tune Logo">
+            </a>
+        </div>
+        <nav class="space-y-6">
+            <a href="acm front page.html" class="block py-2 px-4 text-xl hover:text-red-500">Home</a>
+            <a href="#playlists" class="block py-2 px-4 text-xl hover:text-red-500">ACM All Tracks</a>
+            <a href="categories.html" class="block py-2 px-4 text-xl hover:text-red-500">Categories</a>
+            <a href="radio.html" class="block py-2 px-4 text-xl hover:text-red-500">Radio</a>
+            <a href="#playlists" class="block py-2 px-4 text-xl hover:text-red-500">Playlists</a>
+            <a href="Contact Us.html" class="block py-2 px-4 text-xl hover:text-red-500">Contact Us</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content mt-16" id="main-content">
+        <!-- Article Section -->
+        <div class="bg-gray-800 text-white p-8">
+            <h3 class="text-4xl mb-8 text-red-600 text-center">Know More About ACM Tune</h3>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto">Find peace and calm in our soothing ambient music, carefully crafted to help you unwind and escape the stresses of everyday life. At ACM Tune, we believe that music has the power to heal and transform, and we're dedicated to creating a sanctuary for relaxation and self-discovery. Our music is designed to calm your mind and heart, and transport you to a world of serenity and tranquility. Whether you're struggling with anxiety, depression, or simply need a moment of relaxation, our music is here to help.</p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto mt-4">Our collection of ambient and relaxing tracks is carefully curated to provide a soothing and calming experience, perfect for meditation, yoga, or simply unwinding after a long day. From soothing piano melodies to calming nature sounds, our music is the perfect accompaniment to your relaxation journey. We're passionate about creating music that promotes relaxation, reduces stress and anxiety, and fosters a sense of calm and well-being.</p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto mt-4">At ACM Tune, we're committed to providing high-quality music that resonates with our listeners. We believe that music has the power to bring people together, and we're dedicated to creating a community of like-minded individuals who share our passion for relaxation and self-discovery. Join us on this journey, and let the soothing sounds of ACM Tune calm your mind and heart. Explore our collection of ambient and relaxing tracks, and discover the peace and tranquility that awaits you.</p>
+        </div>
+
+        <div class="bg-gray-800 text-white p-8">
+            <h3 class="text-4xl mb-8 text-red-600 text-center">Escape to a World of Relaxation with ACM Tune</h3>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto">Immerse yourself in the calming sounds of ACM Tune, where ambient music meets relaxation. Our carefully crafted soundscapes are designed to reduce stress and anxiety, and promote a sense of calm and well-being. From soothing piano melodies to calming nature sounds, our music is the perfect accompaniment to your relaxation journey.</p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto mt-4">At ACM Tune, we're passionate about creating music that promotes relaxation and self-discovery. We believe that music has the power to heal and transform, and we're dedicated to creating a sanctuary for relaxation and calmness. Our music is designed to calm your mind and heart, and transport you to a world of serenity and tranquility.</p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto mt-4">Whether you're looking to unwind after a long day, or seeking a deeper sense of relaxation and calmness, our music is here to help. Join us on this journey, and let the soothing sounds of ACM Tune calm your mind and heart. Explore our collection of ambient and relaxing tracks, and discover the peace and tranquility that awaits you. At ACM Tune, we're committed to providing high-quality music that resonates with our listeners, and we're dedicated to creating a community of like-minded individuals who share our passion for relaxation and self-discovery.</p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto mt-4">Our collection of ambient and relaxing tracks is carefully curated to provide a soothing and calming experience, perfect for meditation, yoga, or simply unwinding after a long day. From soothing piano melodies to calming nature sounds, our music is the perfect accompaniment to your relaxation journey. We're passionate about creating music that promotes relaxation, reduces stress and anxiety, and fosters a sense of calm and well-being.</p>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="categories-section bg-gray-900 p-8 text-center" id="categories-section">
+            <h3 class="text-4xl mb-8 text-red-600">Music Categories</h3>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h4 class="text-2xl mb-2">Night Vibes</h4>
+                    <p>Explore the latest Night Vibes tunes.</p>
+                    <a href="pop.html" class="text-red-500 font-bold">Listen</a>
+                </div>
+                <div class="category-card">
+                    <h4 class="text-2xl mb-2">Soft Bass</h4>
+                    <p>Discover your favorite Soft Bass music.</p>
+                    <a href="rock.html" class="text-red-500 font-bold">Listen</a>
+                </div>
+                <div class="category-card">
+                    <h4 class="text-2xl mb-2">All Tracks</h4>
+                    <p>Relax with soothing All Tracks music.</p>
+                    <a href="classical.html" class="text-red-500 font-bold">Listen</a>
+                </div>
+                <div class="category-card">
+                    <h4 class="text-2xl mb-2">8D Sound Music</h4>
+                    <p>Get into the groove of 8D Sound tunes.</p>
+                    <a href="hiphop.html" class="text-red-500 font-bold">Listen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const sidebar = document.getElementById('sidebar');
+        const header = document.getElementById('header');
+        const heroSection = document.getElementById('hero-section');
+        const mainContent = document.getElementById('main-content');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            header.classList.toggle('hidden');
+            heroSection.classList.toggle('content-dimmed');
+            mainContent.classList.toggle('content-dimmed');
+        });
+
+        // Close the sidebar when clicking outside
+        window.addEventListener('click', function (e) {
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                sidebar.classList.remove('open');
+                header.classList.remove('hidden');
+                heroSection.classList.remove('content-dimmed');
+                mainContent.classList.remove('content-dimmed');
+            }
+        });
+
+        // Prevent sidebar from closing when clicking inside
+        sidebar.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>
