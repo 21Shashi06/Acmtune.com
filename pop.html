@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Music Playlist</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Dark theme styling */
+        body {
+            background-color: #121212;
+            color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .song-card {
+            background-color: #1f1f1f;
+            color: #f8f9fa;
+            border: none;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .song-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .song-card img {
+            border-radius: 10px 0 0 10px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .song-card .card-body {
+            padding: 15px;
+        }
+
+        .song-card .play-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .song-card .play-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .playlist-container {
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container playlist-container">
+        <h2 class="text-center my-5">🎵 Pop Music Playlist</h2>
+        <div class="row" id="song-list">
+            <!-- Song cards will go here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const songs = [
+            { name: "Blinding Lights", artist: "The Weeknd", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Blinding+Lights" },
+            { name: "Shape of You", artist: "Ed Sheeran", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Shape+of+You" },
+            { name: "Levitating", artist: "Dua Lipa", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Levitating" },
+            { name: "Watermelon Sugar", artist: "Harry Styles", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Watermelon+Sugar" },
+            { name: "Good 4 U", artist: "Olivia Rodrigo", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Good+4+U" },
+            { name: "Bad Guy", artist: "Billie Eilish", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Bad+Guy" },
+            { name: "Rolling in the Deep", artist: "Adele", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Rolling+in+the+Deep" },
+            { name: "Senorita", artist: "Shawn Mendes", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Senorita" },
+            { name: "Someone Like You", artist: "Adele", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Someone+Like+You" },
+            { name: "Uptown Funk", artist: "Bruno Mars", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3", image: "https://via.placeholder.com/150/1f1f1f/ffffff?text=Uptown+Funk" },
+        ];
+
+        let currentAudio = null;
+
+        const songListContainer = document.getElementById('song-list');
+
+        // Function to generate song cards dynamically
+        function generateSongCards() {
+            songs.forEach((song, index) => {
+                const songCard = document.createElement('div');
+                songCard.classList.add('col-md-6', 'col-lg-4', 'mb-4');
+
+                songCard.innerHTML = `
+                    <div class="card song-card">
+                        <div class="row g-0">
+                            <div class="col-4">
+                                <img src="${song.image}" alt="${song.name}" class="img-fluid rounded-start">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="song-name">${song.name}</h5>
+                                    <p class="song-artist">${song.artist}</p>
+                                    <button class="play-btn" onclick="playSong('${song.url}')">▶ Play</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                songListContainer.appendChild(songCard);
+            });
+        }
+
+        // Function to play a song
+        function playSong(url) {
+            // Pause the currently playing song, if any
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+
+            // Create a new Audio object and play the new song
+            currentAudio = new Audio(url);
+            currentAudio.play();
+        }
+
+        // Initialize the song cards on page load
+        generateSongCards();
+    </script>
+
+</body>
+
+</html>
